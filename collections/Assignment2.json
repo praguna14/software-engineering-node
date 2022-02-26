@@ -1,0 +1,672 @@
+{
+	"info": {
+		"_postman_id": "c935101a-cf07-4321-b2a9-cae4f5978466",
+		"name": "CS5500SP22",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bob\",\n    \"password\": \"bob123\",\n    \"email\": \"bob@marley.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create dummy user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"dummy\",\n    \"password\": \"dummy123\",\n    \"email\": \"dummy@nowhere.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bobby\",\n    \"password\": \"bob123\",\n    \"email\": \"bob@marley.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/users/61fd86b082d03eb14950b3d5",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"61fd86b082d03eb14950b3d5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bobby\",\n    \"password\": \"bob123\",\n    \"email\": \"bob@marley.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/api/users/61fd86b082d03eb14950b3d5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"api",
+								"users",
+								"61fd86b082d03eb14950b3d5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete All Users",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bobby\",\n    \"password\": \"bob123\",\n    \"email\": \"bob@marley.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/users",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "tuits",
+			"item": [
+				{
+					"name": "Find All Tuits",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tuits",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tuits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Tuit by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/tuits/61f5d94ee1b38534f8cae370",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"tuits",
+								"61f5d94ee1b38534f8cae370"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Tuits by User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/users/61f5c2d2a9a075e535218761/tuits",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"61f5c2d2a9a075e535218761",
+								"tuits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Tuit for User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tuit\": \"bob's 2nd tuit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/users/61f5c2d2a9a075e535218761/tuits",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"users",
+								"61f5c2d2a9a075e535218761",
+								"tuits"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Tuit",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"tuit\": \"alice's first tuit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/tuits/61f5d94ee1b38534f8cae370",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"tuits",
+								"61f5d94ee1b38534f8cae370"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Tuit",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"bobby\",\n    \"password\": \"bob123\",\n    \"email\": \"bob@marley.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/tuits/61f5d9e7e1b38534f8cae378",
+							"protocol": "https",
+							"host": [
+								"cs5500-01-sp22",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"api",
+								"tuits",
+								"61f5d9e7e1b38534f8cae378"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "likes",
+			"item": [
+				{
+					"name": "User Likes Tuit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/likes/6201d1a4f6be838c0c969260",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"likes",
+								"6201d1a4f6be838c0c969260"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Unlikes Tuit",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/unlikes/6201d1a4f6be838c0c969260",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"unlikes",
+								"6201d1a4f6be838c0c969260"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Tuits Liked By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Users That Liked Tuit",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/tuits/6201d1a4f6be838c0c969260/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"tuits",
+								"6201d1a4f6be838c0c969260",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Follows",
+			"item": [
+				{
+					"name": "User1 Follows User2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/follows/6201d0acf6be838c0c96925d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"follows",
+								"6201d0acf6be838c0c96925d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User1 Unfollows User2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/unfollows/6201d0acf6be838c0c96925d",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"unfollows",
+								"6201d0acf6be838c0c96925d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Users Followed By User1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/following",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"following"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Users Following User2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/6201d0acf6be838c0c96925d/followedby",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"6201d0acf6be838c0c96925d",
+								"followedby"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Messages",
+			"item": [
+				{
+					"name": "User1 Messages User2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\":\"Hello Worlds\",\n    \"from\":\"62144b1ca6d6181d8fcb7c8b\",\n    \"to\":\"6201d0acf6be838c0c96925d\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/messages/send",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"messages",
+								"send"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User1 unsends message",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/messages/6219751780f957d260948ba8/delete",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"messages",
+								"6219751780f957d260948ba8",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Messages Sent By User1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/messages/62144b1ca6d6181d8fcb7c8b/sent",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"messages",
+								"62144b1ca6d6181d8fcb7c8b",
+								"sent"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Messages Receoved by User2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/messages/6201d0acf6be838c0c96925d/received",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"messages",
+								"6201d0acf6be838c0c96925d",
+								"received"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bookmarks",
+			"item": [
+				{
+					"name": "User Bookmarks Tuit",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/likes/6201d1a4f6be838c0c969260",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"likes",
+								"6201d1a4f6be838c0c969260"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Unlikes Tuit",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/unlikes/6201d1a4f6be838c0c969260",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"unlikes",
+								"6201d1a4f6be838c0c969260"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Tuits Bookmarked By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/users/62144b1ca6d6181d8fcb7c8b/likes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"62144b1ca6d6181d8fcb7c8b",
+								"likes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
