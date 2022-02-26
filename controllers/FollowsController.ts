@@ -9,10 +9,10 @@ export default class FollowsController implements FollowsControllerInterface {
     public static getInstance = (app: Express): FollowsController => {
         if (FollowsController.controller === null) {
             FollowsController.controller = new FollowsController();
+            app.post("/users/:uid1/follows/:uid2", FollowsController.controller.followsUser);
+            app.delete("/users/:uid1/unfollows/:uid2", FollowsController.controller.unfollowsUser);
             app.get("/users/:uid/following", FollowsController.controller.findUsersFollowedByUser);
             app.get("/users/:uid/followedby", FollowsController.controller.findUsersFollowingUser);
-            app.post("/users/:uid_cur/follows/:uid", FollowsController.controller.followsUser);
-            app.delete("/users/:uid_cur/unfollows/:uid", FollowsController.controller.unfollowsUser);
         }
         return FollowsController.controller;
     }
@@ -26,11 +26,11 @@ export default class FollowsController implements FollowsControllerInterface {
             .then(followedby => res.json(followedby));
 
     followsUser = (req: Request, res: Response) =>
-        FollowsController.dao.followsUser(req.params.uid_cur, req.params.uid)
+        FollowsController.dao.followsUser(req.params.uid1, req.params.uid2)
             .then(follows => res.json(follows));
 
     unfollowsUser = (req: Request, res: Response) =>
-        FollowsController.dao.unfollowsUser(req.params.uid_cur, req.params.uid)
+        FollowsController.dao.unfollowsUser(req.params.uid1, req.params.uid)
             .then(status => res.send(status));
 
 }
