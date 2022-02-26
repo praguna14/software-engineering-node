@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c935101a-cf07-4321-b2a9-cae4f5978466",
+		"_postman_id": "0af7ef2b-7904-4793-b50c-ae6f90011958",
 		"name": "CS5500SP22",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -10,8 +10,11 @@
 			"item": [
 				{
 					"name": "Create User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
-						"method": "POST",
+						"method": "GET",
 						"header": [],
 						"body": {
 							"mode": "raw",
@@ -24,8 +27,11 @@
 						},
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users"
@@ -41,8 +47,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users"
@@ -58,8 +67,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -85,8 +97,11 @@
 						},
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users"
@@ -198,8 +213,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/tuits",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"tuits"
@@ -214,7 +232,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://cs5500-01-sp22.herokuapp.com/api/tuits/61f5d94ee1b38534f8cae370",
+							"raw": "https://cs5500-01-sp22.herokuapp.com/api/tuits/6201d14ed4a5094d1244cdf0",
 							"protocol": "https",
 							"host": [
 								"cs5500-01-sp22",
@@ -224,7 +242,7 @@
 							"path": [
 								"api",
 								"tuits",
-								"61f5d94ee1b38534f8cae370"
+								"6201d14ed4a5094d1244cdf0"
 							]
 						}
 					},
@@ -359,8 +377,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/likes/6201d14ed4a5094d1244cdf0",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -379,8 +400,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/unlikes/6201d14ed4a5094d1244cdf0",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -399,8 +423,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/likes",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -418,8 +445,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/tuits/6201d14ed4a5094d1244cdf0/likes",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"tuits",
@@ -442,8 +472,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/follows/6201d063d4a5094d1244cded",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -462,8 +495,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/unfollows/6201d063d4a5094d1244cded",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -482,8 +518,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/following",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -501,8 +540,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201d063d4a5094d1244cded/followedby",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -534,8 +576,11 @@
 						},
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/send",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"messages",
@@ -546,19 +591,22 @@
 					"response": []
 				},
 				{
-					"name": "User1 unsends message",
+					"name": "User1 deletes message",
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/6219751780f957d260948ba8/delete",
+							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/delete/6219b0c1537c69abff90a22b",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"messages",
-								"6219751780f957d260948ba8",
-								"delete"
+								"delete",
+								"6219b0c1537c69abff90a22b"
 							]
 						}
 					},
@@ -570,14 +618,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/6201cfd0d4a5094d1244cde5/sent",
+							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/sent/6201cfd0d4a5094d1244cde5",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"messages",
-								"6201cfd0d4a5094d1244cde5",
-								"sent"
+								"sent",
+								"6201cfd0d4a5094d1244cde5"
 							]
 						}
 					},
@@ -589,14 +640,17 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/6201d025d4a5094d1244cde9/received",
+							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/messages/received/6201d025d4a5094d1244cde9",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"messages",
-								"6201d025d4a5094d1244cde9",
-								"received"
+								"received",
+								"6201d025d4a5094d1244cde9"
 							]
 						}
 					},
@@ -614,8 +668,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/likes/6201d14ed4a5094d1244cdf0",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -634,8 +691,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/unlikes/6201d14ed4a5094d1244cdf0",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
@@ -654,8 +714,11 @@
 						"header": [],
 						"url": {
 							"raw": "https://sfe-node-praguna-singh-a2.herokuapp.com/users/6201cfd0d4a5094d1244cde5/likes",
+							"protocol": "https",
 							"host": [
-								"https://sfe-node-praguna-singh-a2.herokuapp.com"
+								"sfe-node-praguna-singh-a2",
+								"herokuapp",
+								"com"
 							],
 							"path": [
 								"users",
