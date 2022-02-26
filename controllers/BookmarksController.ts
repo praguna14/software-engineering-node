@@ -3,7 +3,7 @@
  */
 
 import { Express, Request, Response } from "express";
-import BookmarksControllerI from "../interfaces/BookmarksController";
+import BookmarksControllerInterface from "../interfaces/BookmarksController";
 import BookmarksDao from "../daos/BookmarksDao";
 
 /**
@@ -23,7 +23,7 @@ import BookmarksDao from "../daos/BookmarksDao";
  * @property {LikeController} LikeController Singleton controller implementing
  * RESTful Web service API
  */
-export default class BookmarksController implements BookmarksControllerI {
+export default class BookmarksController implements BookmarksControllerInterface {
     private static dao: BookmarksDao = BookmarksDao.getInstance();
     private static controller: BookmarksController | any = null;
 

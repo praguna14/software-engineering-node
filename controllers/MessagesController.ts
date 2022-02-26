@@ -1,9 +1,9 @@
-import MessagesControllerI from "../interfaces/MessagesController";
+import MessagesControllerInterface from "../interfaces/MessagesController";
 
 import {Express,Response,Request} from "express";
 import MessagesDao from "../daos/MessagesDao";
 
-export default class MessagesController implements MessagesControllerI{
+export default class MessagesController implements MessagesControllerInterface{
     private static messagesDao: MessagesDao = MessagesDao.getInstance();
     private static messagesController: MessagesController | null = null;
 
@@ -12,7 +12,7 @@ export default class MessagesController implements MessagesControllerI{
             MessagesController.messagesController = new MessagesController();
             app.get("/messages/sent/:uid", MessagesController.messagesController.findMessagesSentByUser);
             app.get("/messages/received/:uid", MessagesController.messagesController.findMessagesSentToUser);
-            app.post("/messages/send/:uid", MessagesController.messagesController.sendMessage);
+            app.post("/messages/send", MessagesController.messagesController.sendMessage);
             app.delete("/messages/delete/:mid", MessagesController.messagesController.unsendMessage);
         }
         return MessagesController.messagesController;
