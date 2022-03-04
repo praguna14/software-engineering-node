@@ -1,3 +1,6 @@
+/**
+ * @file Defines the TuitSchema schema used in models
+ */
 import mongoose from "mongoose";
 const TuitSchema = new mongoose.Schema({
     tuit: {type: String, required: true},

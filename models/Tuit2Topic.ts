@@ -1,7 +1,13 @@
+/**
+ * @file Tuit2Topic Represents the relationship between a tuit and a topic
+ */
 import Tuit from "./Tuit";
 import Topic from "./Topic";
 
-export default class Tuit2Tag {
+/**
+ * @typedef Tuit2Topic Represents the relationship between a tuit and a topic
+ */
+export default class Tuit2Topic {
     private topic: Topic | null = null;
     private tuit: Tuit | null = null;
 }

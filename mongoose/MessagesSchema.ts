@@ -1,3 +1,6 @@
+/**
+ * @file Defines the Messages schema used in models
+ */
 import mongoose, {Schema} from "mongoose";
 import Messages from "../models/Messages";
 
