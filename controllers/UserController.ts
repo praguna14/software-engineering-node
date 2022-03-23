@@ -38,11 +38,12 @@ export default class UserController implements UserControllerI {
     constructor(app: Express, userDao: UserDao) {
         this.app = app;
         this.userDao = userDao;
-        this.app.get('/users', this.findAllUsers);
-        this.app.get('/users/:userid', this.findUserById);
-        this.app.post('/users', this.createUser);
-        this.app.delete('/users/:userid', this.deleteUser);
-        this.app.put('/users/:userid', this.updateUser);
+        this.app.get('/api/users', this.findAllUsers);
+        this.app.get('/api/users/:userid', this.findUserById);
+        this.app.post('/api/users', this.createUser);
+        this.app.delete('/api/users/:userid', this.deleteUser);
+        this.app.put('/api/users/:userid', this.updateUser);
+        this.app.delete("/api/users/username/:username/delete", this.deleteUsersByUsername);
     }
     /**
      * Retrieves all users from the database
@@ -99,5 +100,10 @@ export default class UserController implements UserControllerI {
     updateUser = (req: Request, res: Response) =>
         this.userDao.updateUser(req.params.userid, req.body)
             .then(status => res.json(status));
+    
+    deleteUsersByUsername = (req:Request, res:Response) => 
+        this.userDao.deleteUsersByUsername(req.params.username)
+            .then(status => res.send(status));
+        
 }
 

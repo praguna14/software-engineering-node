@@ -11,6 +11,7 @@ import TuitDao from './daos/TuitDao';
 import FollowsController from './controllers/FollowsController';
 import BookmarksController from './controllers/BookmarksController';
 import MessagesController from './controllers/MessagesController';
+import cors from 'cors';
 
 const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASSWORD = process.env.DB_PASSWORD;
@@ -20,6 +21,8 @@ const url = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.oyfyl.mongodb.
 mongoose.connect(url);
 
 const app = express();
+
+app.use(cors());
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) =>
