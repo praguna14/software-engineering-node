@@ -35,5 +35,9 @@ export default class User {
     private dateOfBirth: Date | null = null;
     private joined: Date = new Date();
     private location: Location | null = null;
+    
+    public setPassword(password: string) {
+        this.password = password;
+    }
 }
 

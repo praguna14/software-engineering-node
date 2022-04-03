@@ -17,7 +17,7 @@ export default class BookmarksDao implements BookmarksDaoInterface {
 
     /**
      * Returns the instance of BookmarksDao. If instance is not present the 
-     * first creates the instance and the returns the same instance.
+     * first creates the instance and the returns the same instance
      * @returns {BookmarksDAO} singleton of Bookmarks DAO
      */
     public static getInstance = (): BookmarksDao => {
