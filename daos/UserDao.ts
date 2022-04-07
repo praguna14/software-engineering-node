@@ -29,7 +29,7 @@ export default class UserDao implements UserDaoI {
      * @returns List of user
      */
     async findAllUsers(): Promise<User[]> {
-        return await UserModel.find();
+        return UserModel.find();
     }
     /**
      * Retreives the information about a user given its ID
@@ -37,7 +37,7 @@ export default class UserDao implements UserDaoI {
      * @returns JSON object representing the user   
      */
     async findUserById(uid: string): Promise<any> {
-        return await UserModel.findById(uid);
+        return UserModel.findById(uid);
     }
 
     /**
@@ -46,7 +46,7 @@ export default class UserDao implements UserDaoI {
      * @returns JSON object stored in the database along with its database id
      */
     async createUser(user: User): Promise<User> {
-        return await UserModel.create(user);
+        return UserModel.create(user);
     }
 
     /**
@@ -55,7 +55,7 @@ export default class UserDao implements UserDaoI {
      * @returns status of deletion of the user
      */
     async deleteUser(uid: string): Promise<any> {
-        return await UserModel.deleteOne({ _id: uid });
+        return UserModel.deleteOne({ _id: uid });
     }
     /**
      * Updates the content of one of the user record in the databse.
@@ -64,11 +64,11 @@ export default class UserDao implements UserDaoI {
      * @returns number of records updated
      */
     async updateUser(uid: string, user: User): Promise<any> {
-        return await UserModel.updateOne({ _id: uid }, { $set: user });
+        return UserModel.updateOne({ _id: uid }, { $set: user });
     }
 
     async deleteUsersByUsername(username: string): Promise<any> {
-        return await UserModel.deleteMany({username: username});
+        return UserModel.deleteMany({username: username});
     }
 
     /**
@@ -77,7 +77,7 @@ export default class UserDao implements UserDaoI {
      * @returns first user having the username provided
      */
     async findUserByUsername(username: string): Promise<any> {
-        return await UserModel.find({username});
+        return UserModel.findOne({username});
     }
 }
 
