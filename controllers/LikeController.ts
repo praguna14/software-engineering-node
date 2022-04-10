@@ -112,6 +112,7 @@ export default class LikeController implements LikeControllerInterface {
             } else {
                 await LikeController.dao.userLikesTuit(userId, tid);
                 tuit.stats.likes = howManyLikedTuit + 1;
+                tuit.stats.dislikes = tuit.stats.dislikes - 1;
             };
             await LikeController.tuitDao.updateLikes(tid, tuit.stats);
             res.sendStatus(200);
@@ -142,7 +143,8 @@ export default class LikeController implements LikeControllerInterface {
                 prevDislikes += 1;
                 prevLikes -= 1
             } else {
-                prevDislikes -= 1;
+                prevDislikes += 1;
+                prevLikes -= 1;
             };
             await LikeController.tuitDao.updateLikes(tid, tuit.stats);
             res.sendStatus(200);
