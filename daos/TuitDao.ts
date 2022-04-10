@@ -10,6 +10,21 @@ import TuitModel from '../mongoose/TuitModel';
  * Tuits resources from the database.
  */
 export default class TuitDao implements TuitDaoI {
+
+    private static dao: TuitDao | null = null;
+    /**
+     * Returns the instance of TuitDao. If instance is not present the 
+     * first creates the instance and the returns the same instance.
+     * @returns {TuitDao} singleton of Likes DAO
+     */
+    public static getInstance = (): TuitDao => {
+        if (TuitDao.dao === null) {
+            TuitDao.dao = new TuitDao();
+        }
+        return TuitDao.dao;
+    }
+    private constructor() { }
+
     /**
      * Retreives all the tuits from the database
      * @returns List of Tuits
@@ -24,7 +39,7 @@ export default class TuitDao implements TuitDaoI {
      * @returns list of tuits
      */
     async findTuitsByUser(uid: string): Promise<Tuit[]> {
-        return await TuitModel.find({postedBy: uid});
+        return await TuitModel.find({ postedBy: uid });
     }
 
     /**
@@ -52,7 +67,7 @@ export default class TuitDao implements TuitDaoI {
      * @returns number of records updated
      */
     async updateTuit(tid: string, tuit: Tuit): Promise<any> {
-        return await TuitModel.updateOne({_id:tid}, {$set: tuit});
+        return await TuitModel.updateOne({ _id: tid }, { $set: tuit });
     }
 
     /**
@@ -61,14 +76,25 @@ export default class TuitDao implements TuitDaoI {
      * @returns status of the deletion of the tuit 
      */
     async deleteTuit(tid: string): Promise<any> {
-        return await TuitModel.deleteOne({_id: tid});
+        return await TuitModel.deleteOne({ _id: tid });
     }
 
     async createTuitByUser(uid: string, tuit: Tuit): Promise<Tuit> {
         return await TuitModel.create(tuit);
     }
-    
+
     async deleteTuitByUser(uid: string): Promise<any> {
-        return await TuitModel.deleteMany({postedBy:uid});
+        return await TuitModel.deleteMany({ postedBy: uid });
     }
+
+    /**
+    * Updates likes count with new values in database
+    * @param {string} tid Primary key of tuit stas to be modified
+    * @param {any} newStats new stats object for the tuit to be updated
+    * @returns Promise To be notified when tuit stats is updated in the database
+    */
+    updateLikes = async (tid: string, newStats: any): Promise<any> =>
+        TuitModel.updateOne(
+            { _id: tid },
+            { $set: { stats: newStats } });
 }
