@@ -5,6 +5,8 @@ import LikeDaoInterface from "../interfaces/LikeDao";
 import LikeModel from "../mongoose/LikeModel";
 import Like from "../models/Like";
 import TuitModel from "../mongoose/TuitModel";
+import Dislike from "../models/Dislike";
+import DislikeModel from "../mongoose/DislikeModel";
 
 /**
  * @class LikeDao Implements the required method for accessing 
@@ -91,7 +93,7 @@ export default class LikeDao implements LikeDaoInterface {
     userLikesTuit =
         async (uid: string, tid: string) =>
             LikeModel.create({ tuit: tid, likedBy: uid });
-    
+
     /**
      * delete document from likes collection 
      * to record that user uid no longer 
@@ -103,7 +105,7 @@ export default class LikeDao implements LikeDaoInterface {
     userUnlikesTuit =
         async (uid: string, tid: string) =>
             LikeModel.deleteOne({ tuit: tid, likedBy: uid });
-    
+
     /**
      * update a tuit's stats
      * @param tid id ot the tuit
@@ -111,8 +113,36 @@ export default class LikeDao implements LikeDaoInterface {
      * @returns 
      */
     updateLikes =
-    async (tid:string, newStats: object) =>
-        TuitModel.updateOne(
-        {_id: tid},
-        {$set: {stats: newStats}});
+        async (tid: string, newStats: object) =>
+            TuitModel.updateOne(
+                { _id: tid },
+                { $set: { stats: newStats } });
+    
+    /**
+     * Retrieves all tuit that disliked a particular user
+     * @param {string} uid User's id
+     * @returns Promise To be notified when the dislikes are retrieved from database
+     */
+     findAllTuitsDislikedByUser = async (uid: string): Promise<Dislike[]> =>
+     DislikeModel
+         .find({ dislikedBy: uid })
+         .populate({
+             path: "tuit",         
+             populate: {
+                 path: "postedBy"
+             }
+         })
+         .exec();
+
+    /**
+     * Retrieves all users that disliked a particular tuit
+     * @param {string} tid Tuit's id
+     * @returns 
+     */
+    findAllUsersThatDislikedTuit = async (tid: string): Promise<Dislike[]> =>
+        DislikeModel
+            .find({ tuit: tid })
+            .populate("dislikedBy")
+            .exec();
+    
 }

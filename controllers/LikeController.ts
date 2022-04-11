@@ -41,7 +41,7 @@ export default class LikeController implements LikeControllerInterface {
             app.post("/users/:uid/likes/:tid", LikeController.controller.likeTuit);
             app.delete("/users/:uid/unlikes/:tid", LikeController.controller.dislikeTuit);
             app.put("/api/users/:uid/likes/:tid", LikeController.controller.userTogglesTuitLikes);
-            app.put("/api/users/:uid/unlikes/:tid", LikeController.controller.userTogglesTuitDisLikes);
+            app.delete("/api/users/:uid/unlikes/:tid", LikeController.controller.userTogglesTuitDisLikes);
         }
         return LikeController.controller;
     }
@@ -112,7 +112,6 @@ export default class LikeController implements LikeControllerInterface {
             } else {
                 await LikeController.dao.userLikesTuit(userId, tid);
                 tuit.stats.likes = howManyLikedTuit + 1;
-                tuit.stats.dislikes = tuit.stats.dislikes - 1;
             };
             await LikeController.tuitDao.updateLikes(tid, tuit.stats);
             res.sendStatus(200);
@@ -129,23 +128,17 @@ export default class LikeController implements LikeControllerInterface {
         const profile = req.session['profile'];
         const userId = uid === "me" && profile ?
             profile._id : uid;
-
         try {
             const userAlreadyLikedTuit = await LikeController.dao
                 .findUserLikesTuit(userId, tid);
             const howManyLikedTuit = await LikeController.dao
                 .countHowManyLikedTuit(tid);
             let tuit = await LikeController.tuitDao.findTuitById(tid);
-            let prevDislikes = tuit.stats.dislikes;
             let prevLikes = tuit.stats.likes;
             if (userAlreadyLikedTuit) {
-                await LikeController.dao.userUnlikesTuit(userId, tid);
-                prevDislikes += 1;
-                prevLikes -= 1
-            } else {
-                prevDislikes += 1;
-                prevLikes -= 1;
-            };
+                await LikeController.dao.userUnlikesTuit(userId, tid);  
+            } 
+            prevLikes -= 1;
             await LikeController.tuitDao.updateLikes(tid, tuit.stats);
             res.sendStatus(200);
         } catch (e) {
