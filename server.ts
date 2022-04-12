@@ -41,7 +41,7 @@ if (process.env.ENV === 'PRODUCTION') {
 app.use(session(sess));
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000']
+    origin: ['http://localhost:3000','https://illustrious-sawine-3142d9.netlify.app']
 }));
 
 app.use(express.json());
