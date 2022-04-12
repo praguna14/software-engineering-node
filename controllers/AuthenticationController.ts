@@ -40,7 +40,7 @@ const AuthenticationController = (app: Express) => {
   }
 
   const logout = (req: Request, res: Response) => {
-    //@ts-check
+    //@ts-ignore
     req.session.destroy((err)=> console.log("Error while destroying request session: ", err));
     res.sendStatus(200);
   }
