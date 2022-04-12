@@ -117,22 +117,40 @@ export default class LikeDao implements LikeDaoInterface {
             TuitModel.updateOne(
                 { _id: tid },
                 { $set: { stats: newStats } });
-    
+
+    /**
+     * Retrieves all tuit that liked a particular user
+     * @param {string} uid User's id
+     * @returns Promise
+     */
+    findAllTuitsLikedByUser = async (uid: string) =>
+        LikeModel
+            .find({ likedBy: uid })
+            .populate({
+                path: "tuit",
+                populate: {
+                    path: "postedBy"
+                }
+            })
+            .exec();
+
+
+
     /**
      * Retrieves all tuit that disliked a particular user
      * @param {string} uid User's id
-     * @returns Promise To be notified when the dislikes are retrieved from database
+     * @returns Promise
      */
-     findAllTuitsDislikedByUser = async (uid: string): Promise<Dislike[]> =>
-     DislikeModel
-         .find({ dislikedBy: uid })
-         .populate({
-             path: "tuit",         
-             populate: {
-                 path: "postedBy"
-             }
-         })
-         .exec();
+    findAllTuitsDislikedByUser = async (uid: string): Promise<Dislike[]> =>
+        DislikeModel
+            .find({ dislikedBy: uid })
+            .populate({
+                path: "tuit",
+                populate: {
+                    path: "postedBy"
+                }
+            })
+            .exec();
 
     /**
      * Retrieves all users that disliked a particular tuit
@@ -144,5 +162,5 @@ export default class LikeDao implements LikeDaoInterface {
             .find({ tuit: tid })
             .populate("dislikedBy")
             .exec();
-    
+
 }
