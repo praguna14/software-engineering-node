@@ -43,6 +43,7 @@ export default class LikeController implements LikeControllerInterface {
             app.put("/api/users/:uid/likes/:tid", LikeController.controller.userTogglesTuitLikes);
             app.delete("/api/users/:uid/unlikes/:tid", LikeController.controller.userTogglesTuitDisLikes);
             app.get("/api/users/:uid/likes",LikeController.controller.findAllTuitsLikedByUser);
+            app.get("/api/users/:uid/likes",LikeController.controller.findAllTuitsDislikedByUser);
         }
         return LikeController.controller;
     }
@@ -184,5 +185,30 @@ export default class LikeController implements LikeControllerInterface {
           });
       }
       
+      /**
+     * Retrieves all the tuits liked by the user stored in the session.
+     * @param req express request object
+     * @param res express response object
+     */
+    findAllTuitsDislikedByUser = (req: Request, res: Response) => {
+        const uid = req.params.uid;
 
+        //@ts-ignore
+        const profile = req.session['profile'];
+        const userId = uid === "me" && profile ?
+          profile._id : uid;
+      
+        
+        LikeController.dao.findAllTuitsDislikedByUser(userId)
+          .then(dislikes => {
+            const dislikesNonNullTuits =
+              dislikes.filter(like => like.tuit);
+            const tuitsFromLikes =
+              dislikesNonNullTuits.map(like => like.tuit);
+            res.json(tuitsFromLikes);
+          })
+          .catch(err => {
+              res.sendStatus(404);
+          });
+      }
 };
