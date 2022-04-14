@@ -30,6 +30,8 @@ const AuthenticationController = (app: Express) => {
 
   const profile = (req: Request, res: Response) => {
     //@ts-ignore
+    console.log(`In Login Request session profile set as : ${req.sesssion['profile']}`)
+    //@ts-ignore
     const profile = req.session['profile'];
     if (profile) {
       profile.password = "";
@@ -64,6 +66,8 @@ const AuthenticationController = (app: Express) => {
       existingUser.password = '*****';
       //@ts-ignore
       req.session['profile'] = existingUser;
+      //@ts-ignore
+      console.log(`In Login Request session profile set as : ${req.sesssion['profile']}`)
       res.json(existingUser);
     } else {
       res.sendStatus(403);
