@@ -26,7 +26,7 @@ const app = express();
 
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000', 'https://illustrious-sawine-3142d9.netlify.app']
+    origin: process.env.CORS_ORIGIN
 }));
 
 const SECRET = 'randomSecret';
@@ -35,8 +35,7 @@ let sess = {
     saveUninitialized: true,
     resave: true,
     cookie: {
-        sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
-        secure: process.env.NODE_ENV === "production",
+        secure: false
         // secure: false
     }
 }
