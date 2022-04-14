@@ -1,7 +1,7 @@
 /**
  * @file Server file
  */
-import express, {Request, Response} from 'express';
+import express, { Request, Response } from 'express';
 import UserController from './controllers/UserController';
 import TuitController from "./controllers/TuitController";
 import LikeController from "./controllers/LikeController";
@@ -23,25 +23,25 @@ mongoose.connect(url);
 
 const session = require("express-session");
 const app = express();
-
 const SECRET = 'randomSecret';
 let sess = {
     secret: SECRET,
     saveUninitialized: true,
     resave: true,
     cookie: {
-        secure: false
+        sameSite: process.env.NODE_ENV === "production" ? 'none' : 'lax',
+        secure: process.env.NODE_ENV === "production",
+        // secure: false
     }
-  }
-
+}
 if (process.env.ENV === 'PRODUCTION') {
-   app.set('trust proxy', 1) // trust first proxy
-   sess.cookie.secure = true // serve secure cookies
+    app.set('trust proxy', 1) // trust first proxy
+    sess.cookie.secure = true // serve secure cookies
 }
 app.use(session(sess));
 app.use(cors({
     credentials: true,
-    origin: ['http://localhost:3000','https://illustrious-sawine-3142d9.netlify.app']
+    origin: ['http://localhost:3000', 'https://illustrious-sawine-3142d9.netlify.app']
 }));
 
 app.use(express.json());
@@ -51,9 +51,9 @@ app.get('/', (req: Request, res: Response) =>
 
 app.get('/add/:a/:b', (req: Request, res: Response) =>
     res.send(req.params.a + req.params.b));
-    
-new UserController(app,new UserDao());
-new TuitController(app,TuitDao.getInstance());
+
+new UserController(app, new UserDao());
+new TuitController(app, TuitDao.getInstance());
 LikeController.getInstance(app);
 FollowsController.getInstance(app);
 BookmarksController.getInstance(app);
