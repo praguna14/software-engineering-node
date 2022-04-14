@@ -30,7 +30,7 @@ const AuthenticationController = (app: Express) => {
 
   const profile = (req: Request, res: Response) => {
     //@ts-ignore
-    console.log(`In Login Request session profile set as : ${req.sesssion['profile']}`)
+    console.log(`In Login Request session profile set as : ${req.session['profile']}`)
     //@ts-ignore
     const profile = req.session['profile'];
     if (profile) {
