@@ -3,6 +3,12 @@ import UserDao from "../daos/UserDao";
 import bcrypt from "bcrypt";
 const saltRounds = 10;
 
+declare global {
+  var profileUser : any;
+}
+
+var profileUser: undefined = undefined;
+
 const AuthenticationController = (app: Express) => {
 
   const userDao: UserDao = UserDao.getInstance();
@@ -36,7 +42,9 @@ const AuthenticationController = (app: Express) => {
     if (profile) {
       profile.password = "";
       res.json(profile);
-    } else {
+    } else if (profileUser != undefined){
+      res.json(profileUser);
+    }else {
       res.sendStatus(403);
     }
   }
@@ -44,6 +52,7 @@ const AuthenticationController = (app: Express) => {
   const logout = (req: Request, res: Response) => {
     //@ts-ignore
     req.session.destroy((err)=> console.log("Error while destroying request session: ", err));
+    profileUser=undefined;
     res.sendStatus(200);
   }
 
@@ -66,8 +75,9 @@ const AuthenticationController = (app: Express) => {
       existingUser.password = '*****';
       //@ts-ignore
       req.session['profile'] = existingUser;
+      profileUser = existingUser;
       //@ts-ignore
-      console.log(`In Login Request session profile set as : ${req.session['profile']}`)
+      console.log(`In Login Request session profile set as : ${profileUser}`)
       res.json(existingUser);
     } else {
       res.sendStatus(403);
