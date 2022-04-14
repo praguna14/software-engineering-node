@@ -23,6 +23,12 @@ mongoose.connect(url);
 
 const session = require("express-session");
 const app = express();
+
+app.use(cors({
+    credentials: true,
+    origin: ['http://localhost:3000', 'https://illustrious-sawine-3142d9.netlify.app']
+}));
+
 const SECRET = 'randomSecret';
 let sess = {
     secret: SECRET,
@@ -39,11 +45,6 @@ if (process.env.ENV === 'PRODUCTION') {
     sess.cookie.secure = true // serve secure cookies
 }
 app.use(session(sess));
-app.use(cors({
-    credentials: true,
-    origin: ['http://localhost:3000', 'https://illustrious-sawine-3142d9.netlify.app']
-}));
-
 app.use(express.json());
 
 app.get('/', (req: Request, res: Response) =>
